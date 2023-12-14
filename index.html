@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PDF Viewer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="padding: 10px">
+          <button class="btn btn-primary btn-block" >
+             Click on Choose PDF to get started
+          </button>
+		  <div>
+			<button id="upload-dialog">Choose PDF</button>
+			<input
+			  type="file"
+			  id="pdf-file"
+			  accept="application/pdf"
+			  style="display: none"
+			/>
+			<!-- <div id="pdf-loader" style="display: none">
+			  Loading Preview ..
+			</div> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" id="pdfManager" style="display: none">
+          <div class="row" id="selectorContainer">
+            <div style="padding-bottom: 100px">
+              <button id="prev">Previous</button>
+              <button id="next">Next</button>
+              &nbsp; &nbsp;
+              <span
+                >Page: <span id="page_num"></span> /
+                <span id="page_count"></span
+              ></span>
+              <div>
+                <label for="xcoor">X-coordinate in cm:</label>
+                <input type="text" id="xcoor" name="xcoor"><br><br>
+                <label for="ycoor">Y-coordinate in cm:</label>
+                <input type="text" id="ycoor" name="ycoor"><br><br>
+              </div>
+            </div>
+            
+            </div>
+            <div class="col-fixed-240" id="parametriContainer"></div>
+            <div class="col-fixed-605">
+              <div
+                id="pageContainer"
+                class="pdfViewer singlePageView dropzone nopadding"
+                style="background-color: transparent"
+              >
+                <canvas
+                  id="the-canvas"
+                  style="border: 1px solid black"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- parameters showed on the left sidebar -->
+   
+    <input
+      id="parameters"
+      type="hidden"
+      value='[{"idParametro":480,"descrizione":"","valore":"X","nota":null}]'
+    />
+
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.worker.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
